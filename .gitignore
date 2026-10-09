@@ -1,0 +1,6 @@
+# estado da maquina que esta vigiando; cada PC tem o seu
+scripts/hd-state.json
+
+Thumbs.db
+Desktop.ini
+.DS_Store
