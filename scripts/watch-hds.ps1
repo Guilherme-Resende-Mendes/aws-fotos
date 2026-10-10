@@ -44,10 +44,6 @@ function Slug([string]$Text) {
     return $s
 }
 
-function Test-MonthName([string]$Name) {
-    return $Name -match '^\d{2}\s*-\s*'
-}
-
 function Invoke-Inventory($Disk) {
     $letter = $Disk.DeviceID
     $root = "$letter\"
@@ -57,7 +53,8 @@ function Invoke-Inventory($Disk) {
     $slug = Slug $label
     $report = Join-Path $Docs "$slug.md"
 
-    Write-Line "HD_DETECTADO $letter `"$label`" serial=$serial"
+    $n = Next-HdNumber $state
+    Write-Line "HD_DETECTADO $n $letter `"$label`" serial=$serial"
     Write-Line "inventariando $letter ..."
 
     $ext = @{}
@@ -99,21 +96,13 @@ function Invoke-Inventory($Disk) {
         }
     }
 
-    $monthLines = New-Object System.Collections.Generic.List[string]
-    $sessionTotal = 0
-    Get-ChildItem -LiteralPath $root -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object {
-        $topName = $_.Name
-        $months = @()
-        if (Test-MonthName $topName) { $months = @($_) }
-        else {
-            $months = @(Get-ChildItem -LiteralPath $_.FullName -Directory -Force -ErrorAction SilentlyContinue | Where-Object { Test-MonthName $_.Name })
-        }
-        foreach ($m in $months) {
-            $sess = @(Get-ChildItem -LiteralPath $m.FullName -Directory -Force -ErrorAction SilentlyContinue)
-            $sessionTotal += $sess.Count
-            $where = if ($topName -eq $m.Name) { $m.Name } else { "$topName / $($m.Name)" }
-            $monthLines.Add("- ${where}: $($sess.Count) sessoes")
-        }
+    $structLines = New-Object System.Collections.Generic.List[string]
+    Get-ChildItem -LiteralPath $root -Directory -Force -ErrorAction SilentlyContinue | Where-Object {
+        $_.Name -notin @('$RECYCLE.BIN', 'System Volume Information', 'Seagate')
+    } | ForEach-Object {
+        $subs = @(Get-ChildItem -LiteralPath $_.FullName -Directory -Force -ErrorAction SilentlyContinue)
+        $num = @($subs | Where-Object { $_.Name -match '^\d{2}\s*-\s*' }).Count
+        $structLines.Add(('- {0}: {1} pastas, {2} numeradas `NN -`' -f $_.Name, $subs.Count, $num))
     }
 
     $gb = [math]::Round($Disk.Size / 1GB, 1)
@@ -129,12 +118,12 @@ function Invoke-Inventory($Disk) {
         '| {0} | {1:N0} | {2:N2} |' -f $_.Key, $_.Value.n, ($_.Value.b / 1GB)
     }) -join "`n"
 
-    $monthsBlock = if ($monthLines.Count) { $monthLines -join "`n" } else { 'Nenhuma pasta de mes no padrao `NN - MES`.' }
+    $structBlock = if ($structLines.Count) { $structLines -join "`n" } else { 'Nenhuma pasta de conteudo na raiz.' }
 
     $md = @"
-# $label
+# HD $n - $label
 
-Inventario automatico em $when. Volume ``$letter``, serie ``$serial``.
+Disco **$n** na ordem em que foi ligado. Inventario em $when. Volume ``$letter``, serie ``$serial``.
 
 | | |
 | --- | --- |
@@ -142,7 +131,6 @@ Inventario automatico em $when. Volume ``$letter``, serie ``$serial``.
 | Livre | $free GB |
 | Arquivos lidos | $($files.ToString('N0')) |
 | Volume lido | $used GB |
-| Sessoes em pasta de mes | $sessionTotal |
 | Falhas de leitura | $skipped |
 
 Nomes de cliente nao entram neste relatorio.
@@ -159,16 +147,19 @@ $topRows
 | --- | --- | --- |
 $extRows
 
-## Sessoes por mes
+## Pastas de primeiro nivel dentro de cada pasta da raiz
 
-$monthsBlock
+So contagem. Nome de trabalho nao entra.
+
+$structBlock
 
 Regra de migracao: o disco sobe inteiro, e no calendario a unidade e a sessao.
 "@
 
     Set-Content -LiteralPath $report -Value $md -Encoding UTF8
-    Write-Line "HD_INVENTARIO_OK $letter `"$label`" arquivos=$files gb=$used relatorio=$report"
+    Write-Line "HD_INVENTARIO_OK $n $letter `"$label`" arquivos=$files gb=$used relatorio=$report"
     return @{
+        n              = $n
         label          = $label
         letter         = $letter
         inventoriedAt  = $when
@@ -176,6 +167,15 @@ Regra de migracao: o disco sobe inteiro, e no calendario a unidade e a sessao.
         files          = $files
         gb             = $used
     }
+}
+
+function Next-HdNumber($Map) {
+    $max = 2
+    foreach ($k in $Map.Keys) {
+        $v = $Map[$k].n
+        if ($v -and [int]$v -gt $max) { $max = [int]$v }
+    }
+    return $max + 1
 }
 
 $state = Get-State
@@ -194,6 +194,7 @@ while ($true) {
 
             if ($disk.VolumeName -eq 'HD NG 22' -and -not $known) {
                 $state[$serial] = @{
+                    n             = 1
                     label         = 'HD NG 22'
                     letter        = $disk.DeviceID
                     inventoriedAt = '2026-10-09'

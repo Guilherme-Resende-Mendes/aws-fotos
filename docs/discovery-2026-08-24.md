@@ -92,6 +92,7 @@ O dimensionamento final depende de medir os HDs e o peso real do JPEG. Sem isso,
 - Chatbot só para dúvida repetida, com saída humana exclusiva para a Ana.
 - Nuvem na AWS: Glacier para o antigo, instantâneo para o ano corrente.
 - Correção de 09/10/2026: salva tudo o que está nos HDs, organizado por sessão. RAW, JPEG, vídeo, árvore de clientes, pessoal e presets entram. A call tinha falado em subir só as editadas; isso não vale para a migração.
+- Correção de 09/10/2026: os 2 TB instantâneos do ano corrente ficam para depois. Por enquanto só o arquivo.
 - Resolver o armazenamento antes do Natal de 2026.
 
 ## Próximos passos saídos da call

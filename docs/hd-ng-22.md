@@ -1,8 +1,8 @@
-# HD NG 22 — estrutura real
+# HD 1 — HD NG 22
 
-Disco lido em 9 de outubro de 2026. Volume `D:`, rótulo **HD NG 22**, Seagate, NTFS, 931 GB, 125 GB livres. O acervo está em `D:\2022`: **175.025 arquivos, 757 GB**. O resto da raiz é instalador e ícone do Seagate.
+Disco **1** na ordem em que o Guilherme ligou. Lido em 9 de outubro de 2026. Volume `D:`, rótulo **HD NG 22**, Seagate, NTFS, 931 GB, 125 GB livres. O acervo está em `D:\2022`: **175.025 arquivos, 757 GB**. O resto da raiz é instalador e ícone do Seagate.
 
-Este HD é o ano de 2022. Os outros discos do estúdio ainda não foram lidos. O padrão abaixo é o que a migração deve esperar, com variação de um disco para outro.
+Este HD é o ano de 2022. O disco 2 é o Seagate de 2018–2021, em [seagate-expansion-drive.md](hds/seagate-expansion-drive.md). A organização muda de um disco para o outro.
 
 ## Duas organizações do mesmo ano
 
@@ -74,6 +74,30 @@ O disco inteiro. Sem filtro de tipo e sem descarte de pasta.
 No calendário a unidade continua sendo a sessão: `2022 / MM - MÊS / sessão /`, com RAW, JPEG, `POS/` e vídeo. As outras pastas sobem como estão: `2022 CLIENTES`, `DIA DAS MÃES`, `nanda pessoal`, `presets` e a `POS` solta na raiz do ano. As duas árvores sobem as duas, mesmo se o mesmo trabalho aparecer nos dois lugares.
 
 Neste disco isso é os 757 GB de `D:\2022`. Ficam de fora só os arquivos do próprio Seagate na raiz do volume (`Start_Here`, `Warranty.pdf`, `Autorun`).
+
+Em 09/10/2026, por volta de 11:49, o HD NG 22 não estava conectado. Os números abaixo são da leitura da manhã, com o disco em `D:`. Nenhum outro HD do estúdio foi lido.
+
+## Custo deste disco
+
+757 GB em Deep Archive ou Azure Archive LRS, tabela do Leste dos EUA: cerca de **US$ 0,75 por mês**, **US$ 9 por ano**. Uma consulta de 15 GB no Standard da AWS fica em cerca de US$ 0,30.
+
+Os 8 TB da reunião ainda não foram medidos. Se os outros discos forem parecidos com este, oito HDs dariam cerca de 6 TB e uns US$ 6 por mês. Isso é projeção, não leitura.
+
+## Como puxar um cliente
+
+O zip continua sendo a sessão. O que muda é o índice, não o corte do arquivo.
+
+Um zip por cliente não serve. `2022 CLIENTES` tem 28 pastas e 108 GB, média de cerca de 4 GB, mas o calendário tem 160 sessões e 603 GB. A maior parte do ano não está na pasta de clientes. Maio sozinho tem 104 GB. Juntar o ano de uma cliente num arquivo só mistura as duas árvores e estoura os 15 GB de uma consulta.
+
+Um zip por mês também não serve. Para achar uma cliente seria preciso restaurar o mês inteiro.
+
+A divisão que permite puxar a cliente sem baixar o disco:
+
+- Cada pasta de sessão vira um zip no caminho em que já está: `2022 / mês / sessão.zip` e `2022 CLIENTES / cliente / sessão.zip`.
+- Um índice ao lado lista, para cada zip, o nome da pasta, o mês ou o cliente, o tamanho e o checksum.
+- O pedido de uma cliente é um filtro nesse índice. Voltam só as sessões daquele nome, uma de cada vez, de dentro dos 15 GB.
+
+O nome da pasta é a chave. No calendário ele traz a pessoa e o tipo da sessão juntos (`gestante`, `newborn`, mês). Não dá para fundir isso com `2022 CLIENTES` por programa sem conferir sessão a sessão. As duas árvores sobem as duas.
 
 ## De onde saiu “não salvar RAW”
 

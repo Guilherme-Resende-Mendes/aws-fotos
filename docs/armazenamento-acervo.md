@@ -2,12 +2,12 @@
 
 Padrão de acesso informado em 9 de outubro de 2026, em cima da arquitetura da [reunião de 24/08/2026](discovery-2026-08-24.md).
 
-- Volume: **8 TB** de fotos antigas.
+- Volume medido em 09/10/2026: **9 HDs, 6.971 GB** (cerca de 7,0 TB). Os 8 TB da reunião cobrem isso.
 - Frequência: cerca de **uma vez por ano**. A hipótese de uma vez por mês foi descartada.
 - Cada consulta: **no máximo 15 GB**, não os 8 TB.
 - Espera aceita na reunião: até dois dias. O cliente ouve “no máximo dois dias”.
 
-O ano corrente continua fora daqui: 2 TB com leitura imediata.
+O ano corrente online (os 2 TB imediatos da reunião) fica para depois. Decisão de 09/10/2026: por enquanto só o arquivo.
 
 ## Camada
 
@@ -42,7 +42,7 @@ Mais HD, fita ou disco óptico não resolvem o que a Nanda descreveu: acervo em 
 
 ## Como empacotar
 
-A unidade, no calendário, é a **sessão**. Cada pasta de sessão sobe inteira. O resto do disco sobe junto: a árvore por cliente, eventos, arquivo pessoal, presets, RAW, JPEG, vídeo e PSD. Não se filtra conteúdo. No HD NG 22 são 757 GB.
+A unidade, onde o disco tem calendário, é a **sessão**. O resto sobe como está. Não se filtra conteúdo. O conjunto fechado é 9 HDs, 6.971 GB.
 
 Os 15 GB são o quanto se restaura numa consulta, não o tamanho máximo do pacote. Sessão que passar disso continua sendo uma sessão. No HD NG 22 a média fica em cerca de 4 GB; maio estoura porque o CR2 está lá, e esse RAW sobe junto.
 
@@ -52,9 +52,10 @@ Cada objeto no Glacier carrega 40 KB de metadado cobrável. Empacotar a sessão 
 
 | Item | Ordem |
 | --- | --- |
-| 8 TB parados, 12 meses | ~US$ 96 |
-| Uma consulta de 15 GB, Standard | menos de US$ 1 |
-| Ano corrente, 2 TB imediatos | fora deste número; era a maior parte do teto de ~R$ 500/mês falado na reunião |
+| 7,0 TB medidos, 12 meses | ~US$ 83 |
+| Uma sessão, cerca de 4 GB, Standard | ~US$ 0,08 |
+| A mesma sessão em Bulk | ~US$ 0,01 |
+| Ano corrente, 2 TB imediatos | fora, por enquanto. Era a maior parte do teto de ~R$ 500/mês falado na reunião |
 
 ## Fontes
 
