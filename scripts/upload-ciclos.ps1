@@ -35,6 +35,13 @@ $env:AZCOPY_AUTO_LOGIN_TYPE = 'AZCLI'
 # e o AzCopy fechou com "out of memory" em 10/10/2026.
 $env:AZCOPY_BUFFER_GB = "$BufferGB"
 
+# Pede ao Windows para nao entrar em espera nem apagar a tela enquanto o script roda, como um player de video.
+# Sem isso o PC dormiu de 01:00 a 08:56 em 11/10/2026 e o envio ficou parado. Vale ate o script fechar;
+# nao muda o plano de energia. Fechar a tampa do notebook ainda poe o PC para dormir.
+Add-Type -Namespace Nanda -Name Energia -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint esFlags);'
+# ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED
+$null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x80000003')
+
 $Repo = Split-Path $PSScriptRoot -Parent
 $Log = Join-Path $Repo 'manifests\fila.log'
 $Work = Join-Path $env:TEMP 'nanda-upload'

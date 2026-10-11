@@ -25,6 +25,10 @@ $Discos = @(
 )
 if ($Somente.Count) { $Discos = @($Discos | Where-Object { $Somente -contains $_.Label }) }
 
+# Mantem o PC acordado enquanto o vigia roda (mesmo pedido do upload-ciclos.ps1; nao muda o plano de energia).
+Add-Type -Namespace Nanda -Name Energia -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint esFlags);'
+$null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x80000003')
+
 $Repo = Split-Path $PSScriptRoot -Parent
 $Log = Join-Path $Repo 'manifests\fila.log'
 $Ciclos = Join-Path $PSScriptRoot 'upload-ciclos.ps1'

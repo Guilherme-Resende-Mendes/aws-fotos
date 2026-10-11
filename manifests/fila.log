@@ -43,3 +43,8 @@
 11/10 00:45:31  vigia: HD 1 parado; retomado o job 9103964d-c076-1f48-6a2f-f50336afb55a (processo 118552)
 11/10 00:45:32  ciclos HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a concorrencia 12, 50 min rodando / 10 pausa
 11/10 00:45:32  HD 1 ciclo 1 inicio, concorrencia 12
+11/10 08:58:29  HD 1 ciclo 1 congelado: PC em modo de espera de 01:00 a 08:56; reiniciando com o PC mantido acordado
+11/10 08:58:35  vigia: inicio, no maximo 1 discos, checagem a cada 5 min
+11/10 08:58:36  vigia: HD 1 parado; retomado o job 9103964d-c076-1f48-6a2f-f50336afb55a (processo 80940)
+11/10 08:58:37  ciclos HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a concorrencia 12, 50 min rodando / 10 pausa
+11/10 08:58:37  HD 1 ciclo 1 inicio, concorrencia 12
