@@ -15,3 +15,5 @@
 10/10 21:02:40  ciclo 4 inicio, concorrencia 12
 10/10 21:52:41  ciclo 4 pausa 10 min | 20.5 %, 90059 Done, 1267 Failed, 392725 Pending, 91 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 59.6207
 10/10 22:02:45  ciclo 5 inicio, concorrencia 12
+10/10 22:52:45  ciclo 5 pausa 10 min | 22.4 %, 97004 Done, 0 Failed, 387136 Pending, 2 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 69.696 
+10/10 23:02:49  ciclo 6 inicio, concorrencia 12
