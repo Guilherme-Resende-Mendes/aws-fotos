@@ -52,3 +52,13 @@ Dentro do ano, a pasta numerada (`01 - …`) é o trabalho, não o mês. Em 2020
 | 2021 | 208    | 16               | 192            |
 
 O disco sobe inteiro.
+
+## Envio para o Azure
+
+Começou em 09/10/2026 às 23:18, para `acervo/seagate-expansion-drive`, camada Archive. Script: [upload-seagate.ps1](../../scripts/upload-seagate.ps1), retomado em ciclos por [upload-ciclos.ps1](../../scripts/upload-ciclos.ps1) (job `7b782459-0dd8-fe4b-4197-c069ff78a238`).
+
+**O disco trava sob carga.** Com concorrência 32 caiu do USB em 45 s. Com 16 caiu três vezes entre 02:24 e 11:43 de 10/10, uma delas sem voltar sozinho, só reconectando. O CrystalDiskInfo (10/10 11:12) mostra a superfície saudável: 0 setores realocados, pendentes ou incorrigíveis, 0 erro de CRC, 4 *command timeouts*, temperatura máxima de 52 °C. Modelo ST2000LM007, 2,5", 5.400 rpm, alimentado pelo USB (UASP). A queda de 11:43 aconteceu com o disco frio, então o suspeito é a ligação USB, não o calor.
+
+Desde a reconexão de 10/10 18:42 roda com concorrência 12, 50 min enviando e 10 de pausa, sem queda. Se cair, o script espera o disco voltar, esfria 20 min e baixa a concorrência em 4.
+
+**Nomes inválidos.** Os arquivos recuperados em `Resultado de Digitalização Profunda\…\Other lost files` têm o caractere de controle U+0081 no nome, que o Azure recusa. Sobem depois do envio principal por [upload-nomes-invalidos.ps1](../../scripts/upload-nomes-invalidos.ps1), com o caractere trocado por `{U+0081}`; o HD não é alterado e a troca fica em `manifests/seagate-expansion-drive-nomes-trocados.csv`.

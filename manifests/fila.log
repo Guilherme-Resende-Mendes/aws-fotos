@@ -1,1 +1,17 @@
 ﻿22:48:27  retomando HD 5 ADATA HV300
+23:18:48  inicio HD 2 D: Seagate Expansion Drive -> seagate-expansion-drive
+23:26:38  inicio HD 2 D: Seagate Expansion Drive -> seagate-expansion-drive
+23:32:47  inicio HD 2 D: Seagate Expansion Drive -> seagate-expansion-drive
+10/10 11:14:43  ciclos HD 2 job 7b782459-0dd8-fe4b-4197-c069ff78a238 concorrencia 16, 50 min rodando / 10 pausa
+10/10 11:14:43  ciclo 1 inicio, concorrencia 16
+10/10 11:59:13  ciclo 1 terminou: CompletedWithErrorsAndSkipped, falhas 417804
+10/10 11:59:13  HD 2 caiu no ciclo 1; concorrencia baixa para 12
+10/10 11:59:13  HD 2 sumiu de D:; esperando voltar
+10/10 18:42:31  HD 2 voltou; esfriando 20 min
+10/10 19:02:31  ciclo 2 inicio, concorrencia 12
+10/10 19:52:32  ciclo 2 pausa 10 min | 16.9 %, 69943 Done, 0 Failed, 409927 Pending, 4272 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 59.0141
+10/10 20:02:36  ciclo 3 inicio, concorrencia 12
+10/10 20:52:36  ciclo 3 pausa 10 min | 18.8 %, 76972 Done, 0 Failed, 406941 Pending, 229 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 112.9979
+10/10 21:02:40  ciclo 4 inicio, concorrencia 12
+10/10 21:52:41  ciclo 4 pausa 10 min | 20.5 %, 90059 Done, 1267 Failed, 392725 Pending, 91 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 59.6207
+10/10 22:02:45  ciclo 5 inicio, concorrencia 12
