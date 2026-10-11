@@ -17,3 +17,6 @@
 10/10 22:02:45  ciclo 5 inicio, concorrencia 12
 10/10 22:52:45  ciclo 5 pausa 10 min | 22.4 %, 97004 Done, 0 Failed, 387136 Pending, 2 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 69.696 
 10/10 23:02:49  ciclo 6 inicio, concorrencia 12
+10/10 23:13:55  ciclos HD 1 copia nova -> hd-ng-22 concorrencia 8, 50 min rodando / 10 pausa
+10/10 23:13:58  HD 1 ciclo 1 inicio, concorrencia 8
+10/10 23:14:03  HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a

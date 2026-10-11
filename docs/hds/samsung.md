@@ -69,3 +69,7 @@ So contagem. Nome de trabalho nao entra.
 - theo: 1 pastas, 0 numeradas `NN -`
 
 Regra de migracao: o disco sobe inteiro, e no calendario a unidade e a sessao.
+
+## Envio para o Azure
+
+Começou em outro PC, que subiu 26.503 arquivos (97 GB) para `acervo/samsung` até 10/10/2026 de manhã. Continua neste PC como `E:`, na fila logo depois do HD 1, pelo mesmo [upload-ciclos.ps1](../../scripts/upload-ciclos.ps1) com concorrência 8.

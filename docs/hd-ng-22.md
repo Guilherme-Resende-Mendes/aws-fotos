@@ -102,3 +102,7 @@ O nome da pasta é a chave. No calendário ele traz a pessoa e o tipo da sessão
 ## De onde saiu “não salvar RAW”
 
 Da transcrição de 24/08/2026, na fala de quem opera o estúdio: subiria para a nuvem as fotos editadas (cerca de 200 por cliente, não os 600 a 1.200 cliques) e, dali para a frente, a câmera passou a gravar JPEG porque o JPEG bastava para a entrega. Eu tratei isso como regra do acervo antigo. Em 09/10/2026 o Guilherme corrigiu: salva por sessão, o RAW entra, e entra tudo o que está nos HDs.
+
+## Envio para o Azure
+
+Começou em outro PC, que subiu 57.591 arquivos (258 GB) para `acervo/hd-ng-22` até 10/10/2026 de manhã. Continua neste PC desde 10/10 às 23:14, como `F:`, por [upload-ciclos.ps1](../scripts/upload-ciclos.ps1): cópia nova sem reenviar o que já existe, concorrência 8, 50 min enviando e 10 de pausa, em paralelo com o HD 2. Job `9103964d-c076-1f48-6a2f-f50336afb55a`.
