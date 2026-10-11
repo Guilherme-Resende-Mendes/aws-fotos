@@ -15,6 +15,11 @@ param(
     [string]$Label = 'HD 2',
     [int]$Concurrency = 16,
     [int]$MinConcurrency = 4,
+    # Com -MaxConcurrency, cada ciclo que fecha sem queda e com no maximo $MaxNewFailed falhas novas
+    # sobe a concorrencia em $StepUp. Se o HD cair, o teto passa a ser a concorrencia que derrubou menos 4.
+    [int]$MaxConcurrency = 0,
+    [int]$StepUp = 4,
+    [int]$MaxNewFailed = 50,
     [int]$RunMin = 50,
     [int]$PauseMin = 10,
     [int]$CoolMin = 20,
@@ -81,6 +86,7 @@ $tag = if ($Prefix) { $Prefix } else { $JobId.Substring(0, 8) }
 
 $cycle = 0
 $retries = 0
+$prevFailed = $null
 $what = if ($JobId) { "job $JobId" } else { "copia nova -> $Prefix" }
 Write-Line "ciclos $Label $what concorrencia $Concurrency, $RunMin min rodando / $PauseMin pausa"
 
@@ -118,6 +124,23 @@ while ($true) {
         $last = ((Get-Content -LiteralPath $out -Raw) -split "`r|`n" | Where-Object { $_ -match 'Done' } | Select-Object -Last 1)
         Write-Line "$Label ciclo $cycle pausa $PauseMin min | $last"
         $retries = 0
+        $nowFailed = if ($last -match '(\d+) Failed') { [int]$Matches[1] } else { -1 }
+        if (-not (Test-Disk)) {
+            # Caiu durante o ciclo e o AzCopy seguiu aberto ate o fim do tempo.
+            $Concurrency = [Math]::Max($MinConcurrency, $Concurrency - 4)
+            if ($MaxConcurrency -gt $Concurrency) { $MaxConcurrency = $Concurrency }
+            $nowFailed = $null
+            Write-Line "$Label caiu no ciclo $cycle; concorrencia baixa para $Concurrency e esse vira o teto"
+        } elseif ($MaxConcurrency -gt $Concurrency -and $nowFailed -ge 0) {
+            $newFailed = if ($null -ne $prevFailed) { $nowFailed - $prevFailed } else { 0 }
+            if ($newFailed -le $MaxNewFailed) {
+                $Concurrency = [Math]::Min($MaxConcurrency, $Concurrency + $StepUp)
+                Write-Line "$Label ciclo $cycle sem queda ($newFailed falhas novas); concorrencia sobe para $Concurrency"
+            } else {
+                Write-Line "$Label ciclo $cycle com $newFailed falhas novas; concorrencia fica em $Concurrency"
+            }
+        }
+        $prevFailed = $nowFailed
         Start-Sleep -Seconds ($PauseMin * 60)
         continue
     }
@@ -140,7 +163,9 @@ while ($true) {
 
     if (-not (Test-Disk)) {
         $Concurrency = [Math]::Max($MinConcurrency, $Concurrency - 4)
-        Write-Line "$Label caiu no ciclo $cycle; concorrencia baixa para $Concurrency"
+        if ($MaxConcurrency -gt $Concurrency) { $MaxConcurrency = $Concurrency }
+        $prevFailed = $null
+        Write-Line "$Label caiu no ciclo $cycle; concorrencia baixa para $Concurrency e esse vira o teto"
         continue
     }
 

@@ -37,3 +37,9 @@
 11/10 00:35:09  HD 2 ciclo 1 inicio, concorrencia 12
 11/10 00:35:10  HD 1 ciclo 1 inicio, concorrencia 8
 11/10 00:39:09  vigia: inicio, no maximo 2 discos, checagem a cada 5 min
+11/10 00:43:57  HD 2 parado a pedido; seguindo so com o HD 1
+11/10 00:43:58  vigia: inicio, no maximo 1 discos, checagem a cada 5 min
+11/10 00:45:30  vigia: inicio, no maximo 1 discos, checagem a cada 5 min
+11/10 00:45:31  vigia: HD 1 parado; retomado o job 9103964d-c076-1f48-6a2f-f50336afb55a (processo 118552)
+11/10 00:45:32  ciclos HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a concorrencia 12, 50 min rodando / 10 pausa
+11/10 00:45:32  HD 1 ciclo 1 inicio, concorrencia 12
