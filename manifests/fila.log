@@ -32,3 +32,8 @@
 10/10 23:58:57  HD 4 ciclo 1 inicio, concorrencia 8
 10/10 23:59:02  HD 4 job 0ea3dd7e-a62c-0d40-7069-20e96279e697
 11/10 00:03:37  ciclo 6 pausa 10 min | 24.6 %, 104811 Done, 4571 Failed, 373034 Pending, 1726 Skipped, 484142 Total, 
+11/10 00:35:09  ciclos HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a concorrencia 8, 50 min rodando / 10 pausa
+11/10 00:35:09  ciclos HD 2 job 7b782459-0dd8-fe4b-4197-c069ff78a238 concorrencia 12, 50 min rodando / 10 pausa
+11/10 00:35:09  HD 2 ciclo 1 inicio, concorrencia 12
+11/10 00:35:10  HD 1 ciclo 1 inicio, concorrencia 8
+11/10 00:39:09  vigia: inicio, no maximo 2 discos, checagem a cada 5 min
