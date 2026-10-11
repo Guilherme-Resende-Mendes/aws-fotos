@@ -20,3 +20,15 @@
 10/10 23:13:55  ciclos HD 1 copia nova -> hd-ng-22 concorrencia 8, 50 min rodando / 10 pausa
 10/10 23:13:58  HD 1 ciclo 1 inicio, concorrencia 8
 10/10 23:14:03  HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a
+10/10 23:17:56  HD 1 ciclo 1 terminou: desconhecido, falhas -1
+10/10 23:17:57  reenviando falhas (tentativa 1) depois de 10 min
+10/10 23:28:00  HD 1 ciclo 2 inicio, concorrencia 8
+10/10 23:39:51  HD 1 ciclo 2 terminou: desconhecido, falhas -1
+10/10 23:39:52  reenviando falhas (tentativa 2) depois de 10 min
+10/10 23:49:54  HD 1 ciclo 3 inicio, concorrencia 8
+10/10 23:58:55  HD 1 ciclo 3 terminou: desconhecido, falhas -1
+10/10 23:58:55  HD 1: -1 falhas persistem com o disco montado; parando. Veja C:\Users\User\AppData\Local\Temp\nanda-upload\hd-ng-22-ciclo-3.out e C:\Users\User\.azcopy\9103964d-c076-1f48-6a2f-f50336afb55a.log
+10/10 23:58:55  ciclos HD 4 copia nova -> samsung concorrencia 8, 50 min rodando / 10 pausa
+10/10 23:58:57  HD 4 ciclo 1 inicio, concorrencia 8
+10/10 23:59:02  HD 4 job 0ea3dd7e-a62c-0d40-7069-20e96279e697
+11/10 00:03:37  ciclo 6 pausa 10 min | 24.6 %, 104811 Done, 4571 Failed, 373034 Pending, 1726 Skipped, 484142 Total, 

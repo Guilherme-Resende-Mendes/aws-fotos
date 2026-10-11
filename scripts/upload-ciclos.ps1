@@ -17,13 +17,18 @@ param(
     [int]$MinConcurrency = 4,
     [int]$RunMin = 50,
     [int]$PauseMin = 10,
-    [int]$CoolMin = 20
+    [int]$CoolMin = 20,
+    [int]$ProbeSec = 30,
+    [double]$BufferGB = 1
 )
 
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $env:Path = 'C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;' + $env:Path
 $env:AZCOPY_AUTO_LOGIN_TYPE = 'AZCLI'
+# Teto de memoria do AzCopy. Sem ele, dois ou tres discos ao mesmo tempo esgotaram os 8 GB do PC
+# e o AzCopy fechou com "out of memory" em 10/10/2026.
+$env:AZCOPY_BUFFER_GB = "$BufferGB"
 
 $Repo = Split-Path $PSScriptRoot -Parent
 $Log = Join-Path $Repo 'manifests\fila.log'
@@ -36,14 +41,27 @@ function Write-Line([string]$Text) {
     Add-Content -LiteralPath $Log -Value $line -Encoding UTF8
 }
 
+# Consulta o disco em outro processo, com prazo de $ProbeSec segundos. Um HD travado no USB congela
+# a leitura e o WMI; consultado aqui dentro, prendia o script junto (HD 2, 10/10/2026 23:26).
+# Enquanto uma consulta travada nao termina, nao abre outra, para nao acumular processos presos.
+$script:Probe = $null
 function Test-Disk {
-    $d = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='$Drive'"
-    return ($d -and $d.VolumeSerialNumber -eq $Serial)
+    if ($script:Probe -and -not $script:Probe.HasExited) { return $false }
+    $code = "`$d = Get-CimInstance Win32_LogicalDisk -Filter `"DeviceID='$Drive'`"; " +
+        "if (-not `$d -or `$d.VolumeSerialNumber -ne '$Serial') { exit 1 }; " +
+        "`$null = [IO.Directory]::GetFileSystemEntries('$Drive\'); exit 0"
+    $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+    $script:Probe = Start-Process -FilePath 'powershell.exe' -WindowStyle Hidden -PassThru `
+        -ArgumentList @('-NoProfile', '-NonInteractive', '-EncodedCommand', $encoded)
+    $null = $script:Probe.Handle
+    if ($script:Probe.WaitForExit($ProbeSec * 1000)) { return ($script:Probe.ExitCode -eq 0) }
+    Stop-Process -Id $script:Probe.Id -Force -ErrorAction SilentlyContinue
+    return $false
 }
 
 function Wait-Disk {
     if (Test-Disk) { return }
-    Write-Line "$Label sumiu de $Drive; esperando voltar"
+    Write-Line "$Label sumiu de $Drive ou nao responde; esperando voltar"
     while (-not (Test-Disk)) { Start-Sleep -Seconds 60 }
     Write-Line "$Label voltou; esfriando $CoolMin min"
     Start-Sleep -Seconds ($CoolMin * 60)
@@ -66,8 +84,13 @@ $retries = 0
 $what = if ($JobId) { "job $JobId" } else { "copia nova -> $Prefix" }
 Write-Line "ciclos $Label $what concorrencia $Concurrency, $RunMin min rodando / $PauseMin pausa"
 
+$p = $null
 while ($true) {
     Wait-Disk
+    if ($p -and -not $p.HasExited) {
+        Write-Line "$Label esperando o AzCopy do ciclo $cycle fechar antes de retomar"
+        $p.WaitForExit()
+    }
     $cycle++
     $env:AZCOPY_CONCURRENCY_VALUE = "$Concurrency"
     $out = Join-Path $Work "$tag-ciclo-$cycle.out"
@@ -90,7 +113,8 @@ while ($true) {
     $finished = $p.WaitForExit([int]($left * 1000))
     if (-not $finished) {
         Stop-Process -Id $p.Id -Force
-        $p.WaitForExit()
+        # Com o HD travado, o AzCopy pode demorar a fechar; nao espera para sempre aqui.
+        if (-not $p.WaitForExit(120000)) { Write-Line "$Label AzCopy nao fechou em 2 min; HD provavelmente travado" }
         $last = ((Get-Content -LiteralPath $out -Raw) -split "`r|`n" | Where-Object { $_ -match 'Done' } | Select-Object -Last 1)
         Write-Line "$Label ciclo $cycle pausa $PauseMin min | $last"
         $retries = 0
@@ -101,7 +125,13 @@ while ($true) {
     $text = Get-Content -LiteralPath $out -Raw
     $status = if ($text -match 'Final Job Status: (\S+)') { $Matches[1] } else { 'desconhecido' }
     $failed = if ($text -match 'Number of File Transfers Failed: (\d+)') { [int]$Matches[1] } else { -1 }
-    Write-Line "$Label ciclo $cycle terminou: $status, falhas $failed"
+    $why = ''
+    if ($status -eq 'desconhecido') {
+        $err = Get-Content -LiteralPath "$out.err" -Raw -ErrorAction SilentlyContinue
+        if ($err -match 'out of memory') { $why = ' (AzCopy sem memoria)' }
+        elseif ($text -match 'failed to perform [^\r\n]{0,160}') { $why = " ($($Matches[0]))" }
+    }
+    Write-Line "$Label ciclo $cycle terminou: $status, falhas $failed$why"
 
     if ($status -eq 'Completed' -or ($status -like 'Completed*' -and $failed -eq 0)) {
         Write-Line "fim $Label"
