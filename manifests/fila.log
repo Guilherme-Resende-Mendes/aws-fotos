@@ -48,3 +48,34 @@
 11/10 08:58:36  vigia: HD 1 parado; retomado o job 9103964d-c076-1f48-6a2f-f50336afb55a (processo 80940)
 11/10 08:58:37  ciclos HD 1 job 9103964d-c076-1f48-6a2f-f50336afb55a concorrencia 12, 50 min rodando / 10 pausa
 11/10 08:58:37  HD 1 ciclo 1 inicio, concorrencia 12
+11/10 09:48:38  HD 1 ciclo 1 pausa 10 min | 3.7 %, 7873 Done, 0 Failed, 162232 Pending, 4923 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 23.5896
+11/10 09:48:39  HD 1 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 16
+11/10 09:58:39  HD 1 ciclo 2 inicio, concorrencia 16
+11/10 10:48:40  HD 1 ciclo 2 pausa 10 min | 6.8 %, 16506 Done, 0 Failed, 150065 Pending, 8457 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 33.658 
+11/10 10:48:41  HD 1 ciclo 2 sem queda (0 falhas novas); concorrencia sobe para 20
+11/10 10:58:42  HD 1 ciclo 3 inicio, concorrencia 20
+11/10 11:48:42  HD 1 ciclo 3 pausa 10 min | 11.8 %, 27035 Done, 0 Failed, 126381 Pending, 21612 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 96.7008
+11/10 11:48:44  HD 1 ciclo 3 sem queda (0 falhas novas); concorrencia sobe para 24
+11/10 11:58:44  HD 1 ciclo 4 inicio, concorrencia 24
+11/10 12:48:45  HD 1 ciclo 4 pausa 10 min | 17.9 %, 38758 Done, 0 Failed, 108107 Pending, 28163 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 202.8433
+11/10 12:48:47  HD 1 ciclo 4 sem queda (0 falhas novas); concorrencia sobe para 28
+11/10 12:58:47  HD 1 ciclo 5 inicio, concorrencia 28
+11/10 13:48:48  HD 1 ciclo 5 pausa 10 min | 24.4 %, 49252 Done, 1 Failed, 108725 Pending, 17050 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 206.9908
+11/10 13:48:49  HD 1 ciclo 5 sem queda (1 falhas novas); concorrencia sobe para 32
+11/10 13:58:50  HD 1 ciclo 6 inicio, concorrencia 32
+11/10 14:48:50  HD 1 ciclo 6 pausa 10 min | 31.0 %, 59139 Done, 0 Failed, 107936 Pending, 7953 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 125.7234
+11/10 14:58:53  HD 1 ciclo 7 inicio, concorrencia 32
+11/10 15:48:53  HD 1 ciclo 7 pausa 10 min | 36.8 %, 68969 Done, 0 Failed, 86779 Pending, 19280 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 112.4486
+11/10 15:58:56  HD 1 ciclo 8 inicio, concorrencia 32
+11/10 16:48:57  HD 1 ciclo 8 pausa 10 min | 42.4 %, 77833 Done, 0 Failed, 69659 Pending, 27536 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 170.3193
+11/10 16:58:58  HD 1 ciclo 9 inicio, concorrencia 32
+11/10 17:48:59  HD 1 ciclo 9 pausa 10 min | 48.8 %, 88139 Done, 0 Failed, 62138 Pending, 24751 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 76.3696
+11/10 17:59:02  HD 1 ciclo 10 inicio, concorrencia 32
+11/10 18:49:02  HD 1 ciclo 10 pausa 10 min | 55.5 %, 96923 Done, 0 Failed, 49380 Pending, 28725 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 130.8616
+11/10 18:59:05  HD 1 ciclo 11 inicio, concorrencia 32
+11/10 19:49:05  HD 1 ciclo 11 pausa 10 min | 62.6 %, 106798 Done, 0 Failed, 36343 Pending, 31887 Skipped, 175028 Total, 2-sec Throughput (Mb/s): 143.8834
+11/10 19:59:07  HD 1 ciclo 12 inicio, concorrencia 32
+11/10 20:35:52  HD 1 ciclo 12 terminou: CompletedWithSkipped, falhas 0
+11/10 20:35:52  fim HD 1
+11/10 20:39:17  vigia: HD 1 job terminou (CompletedWithSkipped); se houve falhas de nome, rodar upload-nomes-invalidos.ps1
+11/10 20:39:17  vigia: todos os jobs terminaram; fim
