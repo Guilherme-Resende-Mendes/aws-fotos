@@ -79,3 +79,11 @@
 11/10 20:35:52  fim HD 1
 11/10 20:39:17  vigia: HD 1 job terminou (CompletedWithSkipped); se houve falhas de nome, rodar upload-nomes-invalidos.ps1
 11/10 20:39:17  vigia: todos os jobs terminaram; fim
+12/10 11:21:52  ciclos HD 6 copia nova -> hd-ng-21 concorrencia 12, 50 min rodando / 10 pausa
+12/10 11:21:52  HD 6 ciclo 1 inicio, concorrencia 12
+12/10 11:21:57  HD 6 job 3cbdba38-8162-714e-6cb6-c6d56cbb196f
+12/10 11:23:17  vigia: inicio, no maximo 1 discos, checagem a cada 5 min
+12/10 11:23:18  vigia: HD 6 parado; retomado o job 3cbdba38-8162-714e-6cb6-c6d56cbb196f (processo 100220)
+12/10 11:23:18  ciclos HD 6 job 3cbdba38-8162-714e-6cb6-c6d56cbb196f concorrencia 12, 50 min rodando / 10 pausa
+12/10 11:23:19  HD 6 ciclo 1 inicio, concorrencia 12
+12/10 11:23:49  HD 6: fechado o envio aberto a mao (duplicado do vigia); segue o do vigia

@@ -21,7 +21,8 @@ $ErrorActionPreference = 'Stop'
 $Discos = @(
     @{ Label = 'HD 2'; JobId = '7b782459-0dd8-fe4b-4197-c069ff78a238'; Drive = 'D:'; Serial = '5E1DACF2'; Concurrency = 12 },
     @{ Label = 'HD 1'; JobId = '9103964d-c076-1f48-6a2f-f50336afb55a'; Drive = 'F:'; Serial = '0CCF1441'; Concurrency = 12; MaxConcurrency = 32 },
-    @{ Label = 'HD 4'; JobId = '0ea3dd7e-a62c-0d40-7069-20e96279e697'; Drive = 'E:'; Serial = '8E457BBB'; Concurrency = 8 }
+    @{ Label = 'HD 4'; JobId = '0ea3dd7e-a62c-0d40-7069-20e96279e697'; Drive = 'E:'; Serial = '8E457BBB'; Concurrency = 8 },
+    @{ Label = 'HD 6'; JobId = '3cbdba38-8162-714e-6cb6-c6d56cbb196f'; Drive = 'D:'; Serial = '1431744A'; Concurrency = 12; MaxConcurrency = 32 }
 )
 if ($Somente.Count) { $Discos = @($Discos | Where-Object { $Somente -contains $_.Label }) }
 
@@ -69,7 +70,8 @@ function Get-JobStatus($d) {
 
 function Get-Runner($d) {
     Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" |
-        Where-Object { $_.CommandLine -match 'upload-ciclos\.ps1' -and $_.CommandLine -match $d.JobId } |
+        # Pelo job ou pela serie do disco: um envio aberto a mao com -Prefix ainda nao tem o job na linha de comando.
+        Where-Object { $_.CommandLine -match 'upload-ciclos\.ps1' -and ($_.CommandLine -match $d.JobId -or $_.CommandLine -match $d.Serial) } |
         Select-Object -First 1
 }
 
