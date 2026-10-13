@@ -19,11 +19,14 @@ $ErrorActionPreference = 'Stop'
 
 # A letra tem de ser a mesma de quando o job comecou: o AzCopy retoma pelo caminho gravado no job.
 $Discos = @(
-    @{ Label = 'HD 2'; JobId = '7b782459-0dd8-fe4b-4197-c069ff78a238'; Drive = 'D:'; Serial = '5E1DACF2'; Concurrency = 12 },
+    @{ Label = 'HD 2'; JobId = '7b782459-0dd8-fe4b-4197-c069ff78a238'; Drive = 'D:'; Serial = '5E1DACF2'; Concurrency = 8; MaxConcurrency = 16 },
     @{ Label = 'HD 1'; JobId = '9103964d-c076-1f48-6a2f-f50336afb55a'; Drive = 'F:'; Serial = '0CCF1441'; Concurrency = 12; MaxConcurrency = 32 },
     @{ Label = 'HD 4'; JobId = '0ea3dd7e-a62c-0d40-7069-20e96279e697'; Drive = 'E:'; Serial = '8E457BBB'; Concurrency = 8 },
-    @{ Label = 'HD 6'; JobId = '3cbdba38-8162-714e-6cb6-c6d56cbb196f'; Drive = 'D:'; Serial = '1431744A'; Concurrency = 12; MaxConcurrency = 32 }
+    @{ Label = 'HD 6'; JobId = '3cbdba38-8162-714e-6cb6-c6d56cbb196f'; Drive = 'D:'; Serial = '1431744A'; Concurrency = 12; MaxConcurrency = 32 },
+    @{ Label = 'HD 8'; JobId = '7fd96eaa-6701-094f-50a8-8a8ecbf8eb71'; Drive = 'E:'; Serial = '6793ED1D'; Concurrency = 12; MaxConcurrency = 24 }
 )
+# Por -File a lista chega como um texto so ('HD 2,HD 8').
+$Somente = @($Somente | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
 if ($Somente.Count) { $Discos = @($Discos | Where-Object { $Somente -contains $_.Label }) }
 
 # Mantem o PC acordado enquanto o vigia roda (mesmo pedido do upload-ciclos.ps1; nao muda o plano de energia).
