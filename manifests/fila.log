@@ -87,3 +87,30 @@
 12/10 11:23:18  ciclos HD 6 job 3cbdba38-8162-714e-6cb6-c6d56cbb196f concorrencia 12, 50 min rodando / 10 pausa
 12/10 11:23:19  HD 6 ciclo 1 inicio, concorrencia 12
 12/10 11:23:49  HD 6: fechado o envio aberto a mao (duplicado do vigia); segue o do vigia
+12/10 12:13:19  HD 6 ciclo 1 pausa 10 min | 6.6 %, 4581 Done, 0 Failed, 67739 Pending, 0 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 184.6644
+12/10 12:13:20  HD 6 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 16
+12/10 12:23:21  HD 6 ciclo 2 inicio, concorrencia 16
+12/10 13:13:22  HD 6 ciclo 2 pausa 10 min | 15.9 %, 10895 Done, 0 Failed, 61423 Pending, 2 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 93.6246 
+12/10 13:13:24  HD 6 ciclo 2 sem queda (0 falhas novas); concorrencia sobe para 20
+12/10 13:23:24  HD 6 ciclo 3 inicio, concorrencia 20
+12/10 14:13:25  HD 6 ciclo 3 pausa 10 min | 21.0 %, 14712 Done, 0 Failed, 57604 Pending, 4 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 89.3487
+12/10 14:13:26  HD 6 ciclo 3 sem queda (0 falhas novas); concorrencia sobe para 24
+12/10 14:23:27  HD 6 ciclo 4 inicio, concorrencia 24
+12/10 15:13:27  HD 6 ciclo 4 pausa 10 min | 28.5 %, 20478 Done, 0 Failed, 51838 Pending, 4 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 159.5509
+12/10 15:13:29  HD 6 ciclo 4 sem queda (0 falhas novas); concorrencia sobe para 28
+12/10 15:23:29  HD 6 ciclo 5 inicio, concorrencia 28
+12/10 16:13:30  HD 6 ciclo 5 pausa 10 min | 39.3 %, 27005 Done, 1 Failed, 45312 Pending, 2 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 198.6203
+12/10 16:13:32  HD 6 ciclo 5 sem queda (1 falhas novas); concorrencia sobe para 32
+12/10 16:23:32  HD 6 ciclo 6 inicio, concorrencia 32
+12/10 17:13:33  HD 6 ciclo 6 pausa 10 min | 50.0 %, 35048 Done, 0 Failed, 37269 Pending, 3 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 258.3085
+12/10 17:23:36  HD 6 ciclo 7 inicio, concorrencia 32
+12/10 18:13:37  HD 6 ciclo 7 pausa 10 min | 65.8 %, 47292 Done, 0 Failed, 25017 Pending, 11 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 187.4001
+12/10 18:23:39  HD 6 ciclo 8 inicio, concorrencia 32
+12/10 19:13:40  HD 6 ciclo 8 pausa 10 min | 81.3 %, 59030 Done, 0 Failed, 13282 Pending, 8 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 237.9279
+12/10 19:23:42  HD 6 ciclo 9 inicio, concorrencia 32
+12/10 20:13:43  HD 6 ciclo 9 pausa 10 min | 97.0 %, 69602 Done, 1 Failed, 2686 Pending, 31 Skipped, 72320 Total, 2-sec Throughput (Mb/s): 200.3704
+12/10 20:23:44  HD 6 ciclo 10 inicio, concorrencia 32
+12/10 20:33:48  HD 6 ciclo 10 terminou: CompletedWithSkipped, falhas 0
+12/10 20:33:48  fim HD 6
+12/10 20:38:48  vigia: HD 6 job terminou (CompletedWithSkipped); se houve falhas de nome, rodar upload-nomes-invalidos.ps1
+12/10 20:38:48  vigia: todos os jobs terminaram; fim
