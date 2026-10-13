@@ -122,3 +122,19 @@
 12/10 22:15:04  HD 8 ciclo 1 inicio, concorrencia 12
 12/10 22:15:09  HD 8 job 7fd96eaa-6701-094f-50a8-8a8ecbf8eb71
 12/10 22:16:20  vigia: inicio, no maximo 2 discos, checagem a cada 5 min
+12/10 23:03:10  HD 2 ciclo 1 pausa 10 min | 25.3 %, 108539 Done, 0 Failed, 370157 Pending, 5446 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 13.1239
+12/10 23:03:11  HD 2 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 12
+12/10 23:05:04  HD 8 ciclo 1 pausa 10 min | 3.6 %, 5403 Done, 0 Failed, 148571 Pending, 0 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 134.1982
+12/10 23:05:05  HD 8 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 16
+12/10 23:13:11  HD 2 ciclo 2 inicio, concorrencia 12
+12/10 23:15:06  HD 8 ciclo 2 inicio, concorrencia 16
+13/10 00:03:13  HD 2 ciclo 2 pausa 10 min | 26.7 %, 113611 Done, 0 Failed, 365715 Pending, 4816 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 36.6096
+13/10 00:03:14  HD 2 ciclo 2 sem queda (0 falhas novas); concorrencia sobe para 16
+13/10 11:09:58  HD 8 ciclo 2 pausa 10 min | 6.2 %, 9250 Done, 15 Failed, 144709 Pending, 0 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 101.8481
+13/10 11:09:58  HD 8 ciclo 2 sem queda (15 falhas novas); concorrencia sobe para 20
+13/10 11:11:08  PC em espera de 00:03 a 11:08 mesmo com o pedido continuo; vigia passa a renovar o pedido a cada 30 s
+13/10 11:11:09  vigia: inicio, no maximo 2 discos, checagem a cada 5 min
+13/10 11:11:14  vigia: HD 2 sem progresso ha 668 min com o disco respondendo; reiniciando
+13/10 11:11:15  vigia: HD 2 parado; retomado o job 7b782459-0dd8-fe4b-4197-c069ff78a238 (processo 105312)
+13/10 11:11:16  ciclos HD 2 job 7b782459-0dd8-fe4b-4197-c069ff78a238 concorrencia 8, 50 min rodando / 10 pausa
+13/10 11:11:16  HD 2 ciclo 1 inicio, concorrencia 8

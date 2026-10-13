@@ -32,6 +32,12 @@ if ($Somente.Count) { $Discos = @($Discos | Where-Object { $Somente -contains $_
 # Mantem o PC acordado enquanto o vigia roda (mesmo pedido do upload-ciclos.ps1; nao muda o plano de energia).
 Add-Type -Namespace Nanda -Name Energia -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint esFlags);'
 $null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x80000003')
+# So o pedido continuo nao bastou: o PC entrou em espera as 00:03 de 13/10/2026 com tudo rodando.
+# Renovar a cada 30 s zera tambem o contador de inatividade de sistema e tela.
+function Stay-Awake {
+    $null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x00000003')  # zera os contadores (sistema e tela)
+    $null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x80000003')  # e mantem o pedido continuo
+}
 
 $Repo = Split-Path $PSScriptRoot -Parent
 $Log = Join-Path $Repo 'manifests\fila.log'
@@ -122,5 +128,5 @@ while ($true) {
         $running++
     }
     if ($done.Count -eq $Discos.Count) { Write-Line 'todos os jobs terminaram; fim'; break }
-    Start-Sleep -Seconds ($IntervalMin * 60)
+    for ($s = 0; $s -lt $IntervalMin * 60; $s += 30) { Stay-Awake; Start-Sleep -Seconds 30 }
 }
