@@ -34,9 +34,14 @@ Add-Type -Namespace Nanda -Name Energia -MemberDefinition '[DllImport("kernel32.
 $null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x80000003')
 # So o pedido continuo nao bastou: o PC entrou em espera as 00:03 de 13/10/2026 com tudo rodando.
 # Renovar a cada 30 s zera tambem o contador de inatividade de sistema e tela.
+# Tambem nao bastou: entrou em espera por inatividade as 14:32 (tela apaga com 2 min na tomada e,
+# neste PC, tela apagada leva a espera). Um movimento de mouse de 0 pixels zera o contador de inatividade,
+# como fazem programas tipo Caffeine; o cursor nao se mexe. Tampa fechada ainda poe o PC para dormir.
+Add-Type -Namespace Nanda -Name Mouse -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, System.UIntPtr dwExtraInfo);'
 function Stay-Awake {
     $null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x00000003')  # zera os contadores (sistema e tela)
     $null = [Nanda.Energia]::SetThreadExecutionState([uint32]'0x80000003')  # e mantem o pedido continuo
+    [Nanda.Mouse]::mouse_event(0x0001, 0, 0, 0, [UIntPtr]::Zero)          # MOUSEEVENTF_MOVE, 0 x 0
 }
 
 $Repo = Split-Path $PSScriptRoot -Parent
