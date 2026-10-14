@@ -163,3 +163,81 @@
 13/10 14:36:45  HD 2 ciclo 1 inicio, concorrencia 8
 13/10 14:36:46  ciclos HD 8 job 7fd96eaa-6701-094f-50a8-8a8ecbf8eb71 concorrencia 12, 50 min rodando / 10 pausa
 13/10 14:36:47  HD 8 ciclo 1 inicio, concorrencia 12
+13/10 15:26:47  HD 2 ciclo 1 pausa 10 min | 31.2 %, 130237 Done, 0 Failed, 353022 Pending, 883 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 11.9211
+13/10 15:26:48  HD 8 ciclo 1 pausa 10 min | 19.5 %, 29453 Done, 1 Failed, 124506 Pending, 14 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 37.7907
+13/10 15:26:48  HD 2 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 12
+13/10 15:26:48  HD 8 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 16
+13/10 15:36:49  HD 2 ciclo 2 inicio, concorrencia 12
+13/10 15:36:49  HD 8 ciclo 2 inicio, concorrencia 16
+13/10 16:26:50  HD 8 ciclo 2 pausa 10 min | 22.3 %, 34666 Done, 0 Failed, 119299 Pending, 9 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 66.3739 
+13/10 16:26:50  HD 2 ciclo 2 pausa 10 min | 31.9 %, 135025 Done, 0 Failed, 346087 Pending, 3030 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 25.6292
+13/10 16:26:51  HD 8 ciclo 2 sem queda (-1 falhas novas); concorrencia sobe para 20
+13/10 16:26:52  HD 2 ciclo 2 sem queda (0 falhas novas); concorrencia sobe para 16
+13/10 16:36:52  HD 8 ciclo 3 inicio, concorrencia 20
+13/10 16:36:52  HD 2 ciclo 3 inicio, concorrencia 16
+13/10 17:26:52  HD 8 ciclo 3 pausa 10 min | 25.3 %, 39503 Done, 0 Failed, 114464 Pending, 7 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 100.8921
+13/10 17:26:53  HD 2 ciclo 3 pausa 10 min | 32.4 %, 138247 Done, 0 Failed, 338618 Pending, 7277 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 7.7322 
+13/10 17:26:54  HD 8 ciclo 3 sem queda (0 falhas novas); concorrencia sobe para 24
+13/10 17:36:54  HD 8 ciclo 4 inicio, concorrencia 24
+13/10 17:36:54  HD 2 ciclo 4 inicio, concorrencia 16
+13/10 18:26:55  HD 8 ciclo 4 pausa 10 min | 28.2 %, 43489 Done, 0 Failed, 110479 Pending, 6 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 28.9228
+13/10 18:26:55  HD 2 ciclo 4 pausa 10 min | 33.0 %, 141062 Done, 0 Failed, 338414 Pending, 4666 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 35.483
+13/10 18:36:57  HD 2 ciclo 5 inicio, concorrencia 16
+13/10 18:37:20  vigia: HD 8 parado; retomado o job 7fd96eaa-6701-094f-50a8-8a8ecbf8eb71 (processo 84272)
+13/10 18:37:22  ciclos HD 8 job 7fd96eaa-6701-094f-50a8-8a8ecbf8eb71 concorrencia 12, 50 min rodando / 10 pausa
+13/10 18:37:24  HD 8 ciclo 1 inicio, concorrencia 12
+13/10 19:26:58  HD 2 ciclo 5 pausa 10 min | 33.8 %, 144949 Done, 1 Failed, 334108 Pending, 5084 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 2.4896 
+13/10 19:27:25  HD 8 ciclo 1 pausa 10 min | 30.4 %, 46536 Done, 0 Failed, 107433 Pending, 5 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 161.9106
+13/10 19:27:26  HD 8 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 16
+13/10 19:37:01  HD 2 ciclo 6 inicio, concorrencia 16
+13/10 19:37:27  HD 8 ciclo 2 inicio, concorrencia 16
+13/10 20:27:01  HD 2 ciclo 6 pausa 10 min | 34.9 %, 149147 Done, 16 Failed, 328274 Pending, 6705 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 35.12  
+13/10 20:27:27  HD 8 ciclo 2 pausa 10 min | 32.5 %, 50559 Done, 13 Failed, 103402 Pending, 0 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 97.325 
+13/10 20:27:28  HD 8 ciclo 2 sem queda (13 falhas novas); concorrencia sobe para 20
+13/10 20:37:04  HD 2 ciclo 7 inicio, concorrencia 16
+13/10 20:37:29  HD 8 ciclo 3 inicio, concorrencia 20
+13/10 21:27:04  HD 2 ciclo 7 pausa 10 min | 35.5 %, 151884 Done, 0 Failed, 330232 Pending, 2026 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 0.4259 
+13/10 21:27:30  HD 8 ciclo 3 pausa 10 min | 35.5 %, 54678 Done, 0 Failed, 99295 Pending, 1 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 118.5616
+13/10 21:27:32  HD 8 ciclo 3 sem queda (-13 falhas novas); concorrencia sobe para 24
+13/10 21:37:07  HD 2 ciclo 8 inicio, concorrencia 16
+13/10 21:37:33  HD 8 ciclo 4 inicio, concorrencia 24
+13/10 22:27:08  HD 2 ciclo 8 pausa 10 min | 36.2 %, 158511 Done, 0 Failed, 325008 Pending, 623 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 20.3434
+13/10 22:27:33  HD 8 ciclo 4 pausa 10 min | 38.1 %, 59594 Done, 0 Failed, 94359 Pending, 21 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 114.6555
+13/10 22:37:10  HD 2 ciclo 9 inicio, concorrencia 16
+13/10 22:37:35  HD 8 ciclo 5 inicio, concorrencia 24
+13/10 23:27:12  HD 2 ciclo 9 pausa 10 min | 36.8 %, 160890 Done, 16 Failed, 322006 Pending, 1230 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 23.8944
+13/10 23:27:35  HD 8 ciclo 5 pausa 10 min | 40.0 %, 62510 Done, 22 Failed, 91421 Pending, 21 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 80.4708
+13/10 23:37:14  HD 2 ciclo 10 inicio, concorrencia 16
+13/10 23:37:37  HD 8 ciclo 6 inicio, concorrencia 24
+14/10 00:27:15  HD 2 ciclo 10 pausa 10 min | 37.3 %, 165640 Done, 1282 Failed, 313150 Pending, 4070 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 25.4563
+14/10 00:27:37  HD 8 ciclo 6 pausa 10 min | 42.3 %, 65732 Done, 11 Failed, 88191 Pending, 40 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 72.9688
+14/10 00:37:18  HD 2 ciclo 11 inicio, concorrencia 16
+14/10 00:37:42  HD 8 ciclo 7 inicio, concorrencia 24
+14/10 01:27:19  HD 2 ciclo 11 pausa 10 min | 37.8 %, 167839 Done, 11 Failed, 311285 Pending, 5007 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 18.7328
+14/10 01:27:42  HD 8 ciclo 7 pausa 10 min | 44.5 %, 68739 Done, 5 Failed, 85191 Pending, 39 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 79.0898
+14/10 01:37:21  HD 2 ciclo 12 inicio, concorrencia 16
+14/10 01:37:44  HD 8 ciclo 8 inicio, concorrencia 24
+14/10 02:27:21  HD 2 ciclo 12 pausa 10 min | 38.3 %, 173547 Done, 22 Failed, 308050 Pending, 2523 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 12.8015
+14/10 02:27:44  HD 8 ciclo 8 pausa 10 min | 46.8 %, 72338 Done, 22 Failed, 81533 Pending, 81 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 105.0373
+14/10 02:37:23  HD 2 ciclo 13 inicio, concorrencia 16
+14/10 02:37:46  HD 8 ciclo 9 inicio, concorrencia 24
+14/10 03:27:24  HD 2 ciclo 13 pausa 10 min | 38.8 %, 177113 Done, 8 Failed, 305462 Pending, 1559 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 20.4823
+14/10 03:27:47  HD 8 ciclo 9 pausa 10 min | 48.8 %, 75287 Done, 7 Failed, 78561 Pending, 119 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 89.9807
+14/10 03:37:27  HD 2 ciclo 14 inicio, concorrencia 16
+14/10 03:37:48  HD 8 ciclo 10 inicio, concorrencia 24
+14/10 04:27:31  HD 2 ciclo 14 pausa 10 min | 39.4 %, 179433 Done, 1272 Failed, 302113 Pending, 1324 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 26.9249
+14/10 04:27:50  HD 8 ciclo 10 pausa 10 min | 50.6 %, 77815 Done, 6 Failed, 76066 Pending, 87 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 129.5321
+14/10 04:37:37  HD 2 ciclo 15 inicio, concorrencia 16
+14/10 04:37:51  HD 8 ciclo 11 inicio, concorrencia 24
+14/10 05:27:38  HD 2 ciclo 15 pausa 10 min | 40.0 %, 183098 Done, 24 Failed, 300408 Pending, 612 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 11.2602
+14/10 05:27:52  HD 8 ciclo 11 pausa 10 min | 52.6 %, 81100 Done, 40 Failed, 72785 Pending, 49 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 82.7081 
+14/10 05:37:40  HD 2 ciclo 16 inicio, concorrencia 16
+14/10 05:37:53  HD 8 ciclo 12 inicio, concorrencia 24
+14/10 06:27:41  HD 2 ciclo 16 pausa 10 min | 40.5 %, 184803 Done, 23 Failed, 298492 Pending, 824 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 29.1676
+14/10 06:27:54  HD 8 ciclo 12 pausa 10 min | 54.5 %, 83754 Done, 32 Failed, 70182 Pending, 6 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 57.7523
+14/10 06:37:43  HD 2 ciclo 17 inicio, concorrencia 16
+14/10 06:37:55  HD 8 ciclo 13 inicio, concorrencia 24
+14/10 07:27:45  HD 2 ciclo 17 pausa 10 min | 40.9 %, 186360 Done, 15 Failed, 294360 Pending, 3407 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 20.9283
+14/10 07:27:56  HD 8 ciclo 13 pausa 10 min | 56.8 %, 87118 Done, 26 Failed, 66802 Pending, 28 Skipped, 153974 Total, 2-sec Throughput (Mb/s): 70.1461
+14/10 07:37:47  HD 2 ciclo 18 inicio, concorrencia 16
+14/10 07:37:57  HD 8 ciclo 14 inicio, concorrencia 24

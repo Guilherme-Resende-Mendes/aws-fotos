@@ -53,6 +53,13 @@ function Write-Line([string]$Text) {
     Add-Content -LiteralPath $Log -Value $line -Encoding UTF8
 }
 
+# O script fechou duas vezes sem deixar rastro (13/10 14:30 e 18:26, o HD 8 logo depois da pausa).
+# Grava o erro no log antes de sair; o vigia retoma o disco.
+trap {
+    Write-Line "$Label erro, script fechou: $($_.Exception.Message) (linha $($_.InvocationInfo.ScriptLineNumber))"
+    break
+}
+
 # Consulta o disco em outro processo, com prazo de $ProbeSec segundos. Um HD travado no USB congela
 # a leitura e o WMI; consultado aqui dentro, prendia o script junto (HD 2, 10/10/2026 23:26).
 # Enquanto uma consulta travada nao termina, nao abre outra, para nao acumular processos presos.
