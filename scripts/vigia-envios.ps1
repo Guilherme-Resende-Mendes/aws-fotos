@@ -19,7 +19,7 @@ $ErrorActionPreference = 'Stop'
 
 # A letra tem de ser a mesma de quando o job comecou: o AzCopy retoma pelo caminho gravado no job.
 $Discos = @(
-    @{ Label = 'HD 2'; JobId = '7b782459-0dd8-fe4b-4197-c069ff78a238'; Drive = 'D:'; Serial = '5E1DACF2'; Concurrency = 8; MaxConcurrency = 16 },
+    @{ Label = 'HD 2'; JobId = '7b782459-0dd8-fe4b-4197-c069ff78a238'; Drive = 'D:'; Serial = '5E1DACF2'; Concurrency = 16; MaxConcurrency = 32; BufferGB = 2 },
     @{ Label = 'HD 1'; JobId = '9103964d-c076-1f48-6a2f-f50336afb55a'; Drive = 'F:'; Serial = '0CCF1441'; Concurrency = 12; MaxConcurrency = 32 },
     @{ Label = 'HD 4'; JobId = '0ea3dd7e-a62c-0d40-7069-20e96279e697'; Drive = 'E:'; Serial = '8E457BBB'; Concurrency = 8 },
     @{ Label = 'HD 6'; JobId = '3cbdba38-8162-714e-6cb6-c6d56cbb196f'; Drive = 'D:'; Serial = '1431744A'; Concurrency = 12; MaxConcurrency = 32 },
@@ -93,6 +93,7 @@ function Start-Runner($d) {
     $argList = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "`"$Ciclos`"",
         '-JobId', $d.JobId, '-Drive', $d.Drive, '-Serial', $d.Serial,
         '-Label', "`"$($d.Label)`"", '-Concurrency', "$($d.Concurrency)")
+    if ($d.BufferGB) { $argList += @('-BufferGB', "$($d.BufferGB)") }
     if ($d.MaxConcurrency) { $argList += @('-MaxConcurrency', "$($d.MaxConcurrency)") }
     $p = Start-Process -FilePath 'powershell.exe' -WindowStyle Minimized -PassThru -ArgumentList $argList
     Write-Line "$($d.Label) parado; retomado o job $($d.JobId) (processo $($p.Id))"
