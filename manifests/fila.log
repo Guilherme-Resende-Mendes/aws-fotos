@@ -246,3 +246,31 @@
 14/10 07:50:42  vigia: HD 2 parado; retomado o job 7b782459-0dd8-fe4b-4197-c069ff78a238 (processo 72888)
 14/10 07:50:43  ciclos HD 2 job 7b782459-0dd8-fe4b-4197-c069ff78a238 concorrencia 16, 50 min rodando / 10 pausa
 14/10 07:50:44  HD 2 ciclo 1 inicio, concorrencia 16
+14/10 08:40:45  HD 2 ciclo 1 pausa 10 min | 42.5 %, 195392 Done, 0 Failed, 286174 Pending, 2576 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 78.444 
+14/10 08:40:46  HD 2 ciclo 1 sem queda (0 falhas novas); concorrencia sobe para 20
+14/10 08:50:47  HD 2 ciclo 2 inicio, concorrencia 20
+14/10 09:40:48  HD 2 ciclo 2 pausa 10 min | 44.6 %, 206191 Done, 0 Failed, 262234 Pending, 15717 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 84.7876
+14/10 09:40:50  HD 2 ciclo 2 sem queda (0 falhas novas); concorrencia sobe para 24
+14/10 09:50:52  HD 2 ciclo 3 inicio, concorrencia 24
+14/10 10:40:53  HD 2 ciclo 3 pausa 10 min | 46.6 %, 213835 Done, 37 Failed, 237701 Pending, 32569 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 86.2803
+14/10 10:40:55  HD 2 ciclo 3 sem queda (37 falhas novas); concorrencia sobe para 28
+14/10 10:50:55  HD 2 ciclo 4 inicio, concorrencia 28
+14/10 11:40:56  HD 2 ciclo 4 pausa 10 min | 49.3 %, 226523 Done, 703 Failed, 232615 Pending, 24301 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 113.2173
+14/10 11:40:57  HD 2 ciclo 4 com 666 falhas novas; concorrencia fica em 28
+14/10 11:50:58  HD 2 ciclo 5 inicio, concorrencia 28
+14/10 12:41:00  HD 2 ciclo 5 pausa 10 min | 51.8 %, 243126 Done, 620 Failed, 222305 Pending, 18091 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 124.5063
+14/10 12:41:02  HD 2 ciclo 5 sem queda (-83 falhas novas); concorrencia sobe para 32
+14/10 12:51:03  HD 2 ciclo 6 inicio, concorrencia 32
+14/10 13:41:04  HD 2 ciclo 6 pausa 10 min | 54.5 %, 257507 Done, 2252 Failed, 195392 Pending, 28991 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 151.5929
+14/10 13:51:06  HD 2 ciclo 7 inicio, concorrencia 32
+14/10 14:41:07  HD 2 ciclo 7 pausa 10 min | 57.1 %, 272456 Done, 1024 Failed, 176403 Pending, 34259 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 102.3308
+14/10 14:51:10  HD 2 ciclo 8 inicio, concorrencia 32
+14/10 15:41:12  HD 2 ciclo 8 pausa 10 min | 59.4 %, 282653 Done, 1213 Failed, 155694 Pending, 44582 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 96.0229 
+14/10 15:51:15  HD 2 ciclo 9 inicio, concorrencia 32
+14/10 16:41:16  HD 2 ciclo 9 pausa 10 min | 62.1 %, 296588 Done, 1267 Failed, 140172 Pending, 46115 Skipped, 484142 Total, 2-sec Throughput (Mb/s): 135.1396
+14/10 16:51:23  HD 2 ciclo 10 inicio, concorrencia 32
+17/10 15:34:19  HD 2 travou em 14/10 17:32 com concorrencia 32 (erros de E/S no disco); PC reiniciado em 15/10 12:32 e o envio ficou parado. Retomando com 20, teto 28
+17/10 15:34:21  vigia: inicio, no maximo 1 discos, checagem a cada 5 min
+17/10 15:34:23  vigia: HD 2 parado; retomado o job 7b782459-0dd8-fe4b-4197-c069ff78a238 (processo 18480)
+17/10 15:34:24  ciclos HD 2 job 7b782459-0dd8-fe4b-4197-c069ff78a238 concorrencia 20, 50 min rodando / 10 pausa
+17/10 15:34:24  HD 2 ciclo 1 inicio, concorrencia 20
